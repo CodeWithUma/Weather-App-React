@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.weather-app {
+  width: 100%;
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.app-header h1 {
+  color: #333;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.unit-toggle {
+  display: flex;
+  gap: 10px;
+}
+
+.unit-toggle button {
+  background: #f0f0f0;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 15px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.unit-toggle button.active {
+  background: #4a6fa5;
+  color: white;
+}
+
+.search-engine {
+  margin-bottom: 30px;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background: #f0f0f0;
+  border-radius: 30px;
+  padding: 5px 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.search-container input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 10px;
+  font-size: 16px;
+  outline: none;
+}
+
+.search-container button {
+  background: transparent;
+  border: none;
+  color: #4a6fa5;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.search-container button:hover {
+  transform: scale(1.1);
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f0f0f0;
+  border-top: 5px solid #4a6fa5;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.weather-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.location-info {
+  text-align: center;
+}
+
+.location-info h2 {
+  color: #333;
+  font-size: 28px;
+  margin-bottom: 5px;
+}
+
+.location-info h2 span {
+  color: #666;
+  font-size: 20px;
+}
+
+.date {
+  color: #666;
+  font-size: 16px;
+}
+
+.current-weather {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.temperature {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.temperature i {
+  font-size: 50px;
+  color: #4a6fa5;
+}
+
+.temperature span {
+  font-size: 60px;
+  font-weight: 600;
+  color: #333;
+}
+
+.description {
+  text-transform: capitalize;
+  color: #666;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.weather-details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.detail-card {
+  background: #f8f9fa;
+  border-radius: 15px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.detail-card:hover {
+  transform: translateY(-5px);
+}
+
+.detail-card i {
+  font-size: 24px;
+  color: #4a6fa5;
+}
+
+.detail-card div p:first-child {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.detail-card div p:last-child {
+  font-size: 14px;
+  color: #666;
+}
+
+@media (max-width: 600px) {
+  .weather-details {
+    grid-template-columns: 1fr;
+  }
+  
+  .temperature span {
+    font-size: 48px;
+  }
+  
+  .weather-app {
+    padding: 20px;
+  }
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background: linear-gradient(135deg, #121212 0%, #1e1e1e 100%);
+  color: #e0e0e0;
+}
+
+.dark-mode .weather-app {
+  background: rgba(30, 30, 30, 0.9);
+  color: #e0e0e0;
+}
+
+.dark-mode .search-container {
+  background: #2d2d2d;
+}
+
+.dark-mode .search-container input {
+  color: #e0e0e0;
+}
+
+.dark-mode .detail-card {
+  background: #2d2d2d;
+  color: #e0e0e0;
+}
+
+.dark-mode .detail-card div p:first-child {
+  color: #ffffff;
+}
+
+.dark-mode .temperature span {
+  color: #ffffff;
+}
+
+.dark-mode .location-info h2 {
+  color: #ffffff;
+}
+
+.dark-mode .description {
+  color: #b0b0b0;
+}
+
+/* Dark mode toggle button */
+.dark-mode-toggle {
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 15px;
+  transition: all 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+  transform: scale(1.1);
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+}
+
+/* Add these variables at the top of your CSS */
+:root {
+  --text-color: #333;
+  --bg-color: #ffffff;
+  --card-bg: #f8f9fa;
+}
+
+body.dark-mode {
+  --text-color: #e0e0e0;
+  --bg-color: #1e1e1e;
+  --card-bg: #2d2d2d;
+}
